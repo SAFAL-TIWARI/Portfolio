@@ -260,14 +260,14 @@ function initTypingAnimation() {
                     setTimeout(() => {
                         isDeleting = true;
                         setTimeout(typeAnimation, 1000); // Pause before deleting
-                    }, 2000); // Show "Safal Tiwari" for 2 seconds
+                    }, 1000); // Show "Safal Tiwari" for 2 seconds
                     return;
                 } else {
                     // Pause before deleting other roles
                     setTimeout(() => {
                         isDeleting = true;
                         setTimeout(typeAnimation, 500);
-                    }, 2000);
+                    }, 1000);
                     return;
                 }
             }
