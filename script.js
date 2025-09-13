@@ -411,11 +411,11 @@ function initMasonryLayout() {
         const grid = videoProjectsGrid;
         const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
         const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
-        
+
         // Get the total height of the card including video and content
         const itemHeight = item.getBoundingClientRect().height;
         const rowSpan = Math.ceil((itemHeight + rowGap) / (rowHeight + rowGap));
-        
+
         item.style.gridRowEnd = `span ${rowSpan}`;
     }
 
@@ -428,7 +428,7 @@ function initMasonryLayout() {
             });
             return;
         }
-        
+
         const allItems = videoProjectsGrid.querySelectorAll('.project-card');
         allItems.forEach(resizeGridItem);
     }
