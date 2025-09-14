@@ -3,6 +3,7 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const themeToggle = document.getElementById('theme-toggle');
+const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
 const contactForm = document.getElementById('contactForm');
 
 // Mobile Navigation Toggle
@@ -36,15 +37,20 @@ function toggleTheme() {
 }
 
 function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
+    const desktopIcon = themeToggle.querySelector('i');
+    const mobileIcon = mobileThemeToggle.querySelector('i');
+    
     if (theme === 'dark') {
-        icon.className = 'fas fa-sun';
+        desktopIcon.className = 'fas fa-sun';
+        mobileIcon.className = 'fas fa-sun';
     } else {
-        icon.className = 'fas fa-moon';
+        desktopIcon.className = 'fas fa-moon';
+        mobileIcon.className = 'fas fa-moon';
     }
 }
 
 themeToggle.addEventListener('click', toggleTheme);
+mobileThemeToggle.addEventListener('click', toggleTheme);
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

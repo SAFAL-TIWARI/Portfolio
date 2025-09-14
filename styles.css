@@ -125,6 +125,16 @@ body {
     color: white;
 }
 
+.mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 15px;
+}
+
+.mobile-theme-toggle {
+    display: none;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -285,6 +295,17 @@ body {
 
 .profile-img:hover {
     transform: scale(1.05);
+}
+
+.mobile-profile-img {
+    display: none;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.mobile-profile {
+    width: 200px;
+    height: 200px;
 }
 
 /* Section Styles */
@@ -822,8 +843,35 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Navigation Mobile Changes */
+    .mobile-controls {
+        display: flex;
+    }
+    
+    .mobile-theme-toggle {
+        display: block;
+        background: none;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        padding: 6px 10px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+    }
+    
+    .mobile-theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+    
     .hamburger {
         display: flex;
+    }
+
+    /* Hide desktop theme toggle on mobile */
+    .nav-menu .theme-toggle {
+        display: none;
     }
 
     .nav-menu {
@@ -855,43 +903,109 @@ section {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    /* Hero Section Mobile Changes */
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 40px;
+        gap: 30px;
+    }
+    
+    /* Show mobile profile image, hide desktop one */
+    .mobile-profile-img {
+        display: flex;
+    }
+    
+    .desktop-profile {
+        display: none;
     }
 
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-text h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-text p {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+        line-height: 1.6;
     }
 
-    .profile-img {
-        width: 300px;
-        height: 300px;
+    /* Hero buttons in single row */
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    /* Reduce social links size */
+    .social-links {
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    /* Section padding reduction */
+    section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
     }
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 
     .about-stats {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .stat {
+        padding: 15px;
+    }
+    
+    .stat h3 {
+        font-size: 1.5rem;
     }
 
     .skills-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
+    }
+    
+    .skills-category h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .skill-item {
+        padding: 15px;
     }
 
     .contact-content {
         grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+        gap: 30px;
     }
 
     .timeline::after {
@@ -921,30 +1035,107 @@ section {
 
 @media (max-width: 480px) {
     .container {
+        padding: 0 10px;
+    }
+    
+    .nav-container {
         padding: 0 15px;
+        height: 60px;
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.3rem;
     }
 
+    /* Further reduce hero section sizes */
     .hero-text h1 {
-        font-size: 2rem;
+        font-size: 1.7rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-text h2 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-text p {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+
+    .mobile-profile {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .mobile-profile-img {
+        margin-bottom: 20px;
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+    }
+    
+    /* Further reduce section padding */
+    section {
+        padding: 40px 0;
     }
 
-    .profile-img {
-        width: 250px;
-        height: 250px;
+    /* Smaller buttons */
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .hero-buttons {
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    /* Smaller social links */
+    .social-link {
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+    
+    .social-links {
+        gap: 12px;
+    }
+
+    /* Reduce stats and skills sizes */
+    .stat {
+        padding: 12px;
+    }
+    
+    .stat h3 {
+        font-size: 1.3rem;
+    }
+    
+    .stat p {
+        font-size: 0.9rem;
+    }
+    
+    .skill-item {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .skills-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     /* Reset masonry layout on mobile */
     .projects-subsection:last-child .projects-grid {
         grid-auto-rows: auto;
-        gap: 30px;
+        gap: 20px;
     }
 
     .projects-subsection:last-child .project-card {
@@ -953,6 +1144,22 @@ section {
 
     .certificates-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Reduce project card padding */
+    .project-card {
+        padding: 15px;
+    }
+    
+    .project-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .project-content p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
     }
 }
 
